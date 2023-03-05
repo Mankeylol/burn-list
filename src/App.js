@@ -11,10 +11,8 @@ function App() {
   return (
     <>
       <div className='container'>
-        <WalletContext>
         <Navbar/>
         <WalletNotConnected/>
-        </WalletContext>
       </div>
     </>
   );
