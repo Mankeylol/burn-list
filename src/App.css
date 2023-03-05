@@ -1,38 +1,96 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.navbar{
+  color: #fffffe;
+  height: 100px;
+  
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+}
+
+.navbar > h1 {
+  margin-top: 0px ;
+  font-size: 35px;
+  padding: 30px 40px;
+}
+
+.wallet-container{
+  margin: 30px 40px;
+  height: 48px;
+  background-color: #FF4800;
+  border-radius:5px ;
+}
+
+.container {
+  background-color: #16161a;
+  height: 705px;
+}
+
+.main-content {
+  color: #fffffe;
+  display: flex;flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.main-content > h1 {
+  font-size: 48px;
+  padding: 0px;
+  margin: 50px 0px 10px 0px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.main-btn{
+  padding: 0px;
+  background-color: #FF4800;
+  border: 0px;
+  border-radius: 5px;
+  margin-right: 100px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  height: 48px;
+}
+
+.side-btn {
+  height: 50px;
+  cursor: pointer;
+  width: 149.8px;
+  border-radius: 5px;
+  border: 0px;
+  font-size: 16px;
+}
+
+.btn-div{
+  display: flex;
+  flex-direction: row;
+  padding-top: 100px ;
+}
+
+.modal, .overlay {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+}
+
+.overlay {
+  background: rgba(49,49,49,0.8);
+}
+.modal-content {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1.4;
+  background: #f1f1f1;
+  padding: 14px 28px;
+  border-radius: 3px;
+  max-width: 600px;
+  min-width: 300px;
+}
+
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px 7px;
 }
