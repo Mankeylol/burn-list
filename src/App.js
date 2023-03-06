@@ -48,7 +48,7 @@ function App() {
     <>
       <div className='container'>
         <ConnectionProvider endpoint={endpoint}>
-          <WalletProvider wallets={wallets} autoConnect>
+          <WalletProvider wallets={wallets} /*autoConnect*/>
             <WalletModalProvider>
               <Navbar />
               <WalletNotConnected />

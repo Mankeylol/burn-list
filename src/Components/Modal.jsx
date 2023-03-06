@@ -1,29 +1,34 @@
-import React, { useState } from 'react'
 import { useWallet } from "@solana/wallet-adapter-react";
+import Card from './Card';
+import data from '../data'
+
+
 
 export default function Modal() {
 
-  const [popup, setState] = useState(false);
-  console.log(popup)
+  const { connected } = useWallet();
 
-  const data = useWallet();
+  const cards = data.map(item =>{
+    return (<Card 
+      image ={item.img}
+      name = {item.name}/>)
+  })
 
-  /*if (data.connected = true) {
-    setState(true)
-  }*/
-  
-  console.log("wallet", data);
 
   const MyModal = () =>{
     return(
       <div className='modal-content' >
+        <h2>Possible Scam NFTs</h2>
+        <div className="nft-container">
+        {cards}
+        </div>
       </div>
     )
   }
 
   return (
     <>
-      {popup && <MyModal />}
+      {connected && <MyModal />}
     </>
   )
 }
