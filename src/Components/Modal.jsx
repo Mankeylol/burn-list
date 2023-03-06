@@ -1,17 +1,29 @@
 import React, { useState } from 'react'
-import Solana from "@solana/web3.js"
+import { useWallet } from "@solana/wallet-adapter-react";
 
-export default function MainPopup() {
+export default function Modal() {
 
-  const [popup, setPopup] = useState(false);
-  const toggleModal = () => {
-    setPopup(!popup)
+  const [popup, setState] = useState(false);
+  console.log(popup)
+
+  const data = useWallet();
+
+  /*if (data.connected = true) {
+    setState(true)
+  }*/
+  
+  console.log("wallet", data);
+
+  const MyModal = () =>{
+    return(
+      <div className='modal-content' >
+      </div>
+    )
   }
 
-
   return (
-    <div className=''>
-      
-    </div>
+    <>
+      {popup && <MyModal />}
+    </>
   )
 }
