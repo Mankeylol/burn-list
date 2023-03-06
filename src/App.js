@@ -15,6 +15,9 @@ import {
   WalletModalProvider,
   WalletMultiButton,
 } from "@solana/wallet-adapter-react-ui";
+import Modal from "./Components/Modal";
+
+
 const network = WalletAdapterNetwork.Devnet;
 
 // You can also provide a custom RPC endpoint.
@@ -49,6 +52,7 @@ function App() {
             <WalletModalProvider>
               <Navbar />
               <WalletNotConnected />
+              <Modal />
             </WalletModalProvider>
           </WalletProvider>
         </ConnectionProvider>
