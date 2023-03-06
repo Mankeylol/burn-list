@@ -4,7 +4,7 @@ import data from '../data'
 
 
 
-export default function Modal() {
+export default function WalletConnected() {
 
   const { connected } = useWallet();
 
@@ -18,10 +18,11 @@ export default function Modal() {
   const MyModal = () =>{
     return(
       <div className='modal-content' >
-        <h2>Possible Scam NFTs</h2>
+        <h2 classname ="content-heading">Possible Scam NFTs</h2>
         <div className="nft-container">
         {cards}
         </div>
+        <button className="burn-btn">Burn and claim rent</button>
       </div>
     )
   }
