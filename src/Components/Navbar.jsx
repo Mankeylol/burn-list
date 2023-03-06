@@ -3,7 +3,7 @@ import { Wallet } from "./WalletAdapter";
 import { useWallet } from "@solana/wallet-adapter-react";
 
 export default function Navbar() {
-  const { publicKey, wallet, disconnect } = useWallet();
+  const { publicKey, wallet } = useWallet();
 
   console.log("wallet", wallet, publicKey);
   return (

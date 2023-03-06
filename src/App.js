@@ -2,8 +2,7 @@ import "./App.css";
 import Navbar from "./Components/Navbar";
 import { useMemo } from "react";
 import WalletNotConnected from "./Components/WalletNotConnected";
-import * as Web3 from "@solana/web3.js";
-import { WalletContext } from "@solana/wallet-adapter-react";
+
 import {
   ConnectionProvider,
   WalletProvider,
@@ -13,9 +12,9 @@ import { WalletAdapterNetwork } from "@solana/wallet-adapter-base";
 import { clusterApiUrl } from "@solana/web3.js";
 import {
   WalletModalProvider,
-  WalletMultiButton,
+
 } from "@solana/wallet-adapter-react-ui";
-import Modal from "./Components/Modal";
+import WalletConnected from "./Components/WalletConnected";
 
 
 const network = WalletAdapterNetwork.Devnet;
@@ -48,11 +47,11 @@ function App() {
     <>
       <div className='container'>
         <ConnectionProvider endpoint={endpoint}>
-          <WalletProvider wallets={wallets} autoConnect>
+          <WalletProvider wallets={wallets} /*autoConnect*/>
             <WalletModalProvider>
               <Navbar />
               <WalletNotConnected />
-              <Modal />
+              <WalletConnected/>
             </WalletModalProvider>
           </WalletProvider>
         </ConnectionProvider>
