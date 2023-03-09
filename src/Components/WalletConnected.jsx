@@ -1,16 +1,13 @@
 import { useWallet } from "@solana/wallet-adapter-react";
-import { Metaplex } from "@metaplex-foundation/js";
-import { Connection, clusterApiUrl,} from "@solana/web3.js";
 
 import Card from './Card';
 import data from '../data'
 
-
-
-
 export default function WalletConnected() {
 
-  const { connected, publicKey } = useWallet();
+  const { connected,} = useWallet();
+
+  
 
 
 

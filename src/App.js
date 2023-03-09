@@ -2,6 +2,7 @@ import "./App.css";
 import Navbar from "./Components/Navbar";
 import { useMemo } from "react";
 import WalletNotConnected from "./Components/WalletNotConnected";
+import { NFTList } from "./Components/GetData"; 
 
 import {
   ConnectionProvider,
@@ -52,6 +53,7 @@ function App() {
               <Navbar />
               <WalletNotConnected />
               <WalletConnected/>
+              <NFTList/>
             </WalletModalProvider>
           </WalletProvider>
         </ConnectionProvider>
