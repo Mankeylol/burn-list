@@ -15,6 +15,8 @@ import {
 
 } from "@solana/wallet-adapter-react-ui";
 import WalletConnected from "./Components/WalletConnected";
+import NFTList from "./Components/GetData";
+
 
 
 const network = WalletAdapterNetwork.Devnet;
@@ -52,6 +54,7 @@ function App() {
               <Navbar />
               <WalletNotConnected />
               <WalletConnected/>
+              <NFTList/>
             </WalletModalProvider>
           </WalletProvider>
         </ConnectionProvider>
