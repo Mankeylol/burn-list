@@ -5,6 +5,7 @@ import WalletNotConnected from "./Components/WalletNotConnected";
 
 import {
   ConnectionProvider,
+  useWallet,
   WalletProvider,
 } from "@solana/wallet-adapter-react";
 import { PhantomWalletAdapter } from "@solana/wallet-adapter-phantom";
@@ -15,6 +16,8 @@ import {
 
 } from "@solana/wallet-adapter-react-ui";
 import WalletConnected from "./Components/WalletConnected";
+import NFTList from "./Components/GetData";
+
 
 
 const network = WalletAdapterNetwork.Devnet;
@@ -22,6 +25,7 @@ const network = WalletAdapterNetwork.Devnet;
 // You can also provide a custom RPC endpoint.
 
 function App() {
+  const { connected, publicKey } = useWallet();
   const endpoint = useMemo(() => clusterApiUrl(network), [network]);
   const wallets = useMemo(
     () => [
@@ -50,8 +54,8 @@ function App() {
           <WalletProvider wallets={wallets} /*autoConnect*/>
             <WalletModalProvider>
               <Navbar />
-              <WalletNotConnected />
-              <WalletConnected/>
+              {connected ? <WalletConnected publicKey={publicKey.toBase58()} /> : <WalletNotConnected />}
+              {/* <NFTList/> */}
             </WalletModalProvider>
           </WalletProvider>
         </ConnectionProvider>
