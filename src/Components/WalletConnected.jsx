@@ -4,16 +4,12 @@ import { Connection, clusterApiUrl,} from "@solana/web3.js";
 
 import Card from './Card';
 import data from '../data'
+import NFTList from "./GetData";
 
 
 
 
-export default function WalletConnected() {
-
-  const { connected, publicKey } = useWallet();
-
-
-
+export default function WalletConnected(props) {
   const cards = data.map(item =>{
     return (<Card 
       image ={item.img}
@@ -35,7 +31,8 @@ export default function WalletConnected() {
 
   return (
     <>
-      {connected && <MyModal />}
+      <MyModal />
+      <NFTList publicKey={props.publicKey} />
     </>
   )
 }
