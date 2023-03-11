@@ -54,7 +54,7 @@ function App() {
           <WalletProvider wallets={wallets} /*autoConnect*/>
             <WalletModalProvider>
               <Navbar />
-              {connected && publicKey ? <WalletConnected/> : <WalletNotConnected />}
+              {connected && publicKey ? <WalletConnected publicKey={publicKey} /> : <WalletNotConnected />}
               {/* <NFTList/> */}
             </WalletModalProvider>
           </WalletProvider>
