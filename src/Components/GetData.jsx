@@ -21,12 +21,13 @@ import {
           const metaplex = new Metaplex(connection);
 
           const wallet = props.publicKey.toBase58();
+          // const wallet = "F7wfhMExqYNdgTUZz9web8CtCZELxaHCAZXXrbQbrVED";
 
           const solana_connection = new Connection(
             "https://api.devnet.solana.com"
             // "https://special-responsive-dinghy.solana-mainnet.discover.quiknode.pro/5158345c25d3630b3f69ba4d4b524822351941b1/"
           );
-    
+
           const filters = [
             {
               //limiting the size to 165 - filtering
@@ -41,11 +42,35 @@ import {
               },
             },
           ];
+
+          const tokenAccounts = await solana_connection.getParsedProgramAccounts(TOKEN_PROGRAM_ID, {
+            filters,
+          });
+
+          // const solana_connection = new Connection(
+          //   "https://api.devnet.solana.com"
+          //   // "https://special-responsive-dinghy.solana-mainnet.discover.quiknode.pro/5158345c25d3630b3f69ba4d4b524822351941b1/"
+          // );
     
-          const tokenAccounts = await solana_connection.getParsedProgramAccounts(
-            TOKEN_PROGRAM_ID,
-            {}
-          );
+          // const filters = [
+          //   {
+          //     //limiting the size to 165 - filtering
+          //     dataSize: 165,
+          //   },
+
+          //   {
+          //     //memory comparison - in 165 bytes at byte 32 we start(wallets start at 32nd place)
+          //     memcmp: {
+          //       offset: 32,
+          //       bytes: wallet,
+          //     },
+          //   },
+          // ];
+    
+          // const tokenAccounts = await solana_connection.getParsedProgramAccounts(
+          //   TOKEN_PROGRAM_ID,
+          //   filters
+          // );
 
           const unsafe_nft_array = [];
           const safe_nft_array = [];

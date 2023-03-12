@@ -2,13 +2,18 @@ import Card from './Card';
 import data from '../data'
 import NFTList from "./GetData";
 import { useWallet } from '@solana/wallet-adapter-react';
+import { v4 } from "uuid";
 
 export default function WalletConnected({ props }) {
   const { publicKey } = useWallet();
   const cards = data.map(item =>{
-    return (<Card 
-      image ={item.img}
-      name = {item.name}/>)
+    return (
+      <Card 
+        image ={item.img}
+        name = {item.name}
+        key = {v4()} 
+      />
+    )
   })
 
   const MyModal = () =>{

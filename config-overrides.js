@@ -9,17 +9,17 @@ module.exports = function override(config, env) {
         // http: require.resolve('stream-http'),
         // https: require.resolve('https-browserify'),
         // os: require.resolve('os-browserify/browser'),
-        // buffer: require.resolve('buffer'),
+        buffer: require.resolve('buffer'),
         path: require.resolve('path-browserify'),
         stream: require.resolve('stream-browserify'),
         zlib: require.resolve('zlib-browserify'),
     };
-    // config.plugins.push(
-    //     new webpack.ProvidePlugin({
+    config.plugins.push(
+        new webpack.ProvidePlugin({
     //         // process: 'process/browser',
-    //         Buffer: ['buffer', 'Buffer'],
-    //     }),
-    // );
+            Buffer: ['buffer', 'Buffer'],
+        }),
+    );
 
     return config;
 }
