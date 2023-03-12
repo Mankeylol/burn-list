@@ -3,7 +3,7 @@ import WalletConnected from "./WalletConnected";
 import WalletNotConnected from "./WalletNotConnected";
 
 export const MainContainer = () => {
-    const { connected, publicKey } = useWallet();
+    const { connected, } = useWallet();
     return (
       connected ? <WalletConnected /> : <WalletNotConnected />
     )
