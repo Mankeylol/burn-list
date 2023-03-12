@@ -91,7 +91,7 @@ import BurnNFTs from "./BurnNFTs";
 
           console.log(unsafe_nft_array);
           console.log(safe_nft_array);
-          setNfts(safe_nft_array)
+          setNfts(unsafe_nft_array)
         }
         nft_Array_Sort();
     }, [props.publicKey]);
