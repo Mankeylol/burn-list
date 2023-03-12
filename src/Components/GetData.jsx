@@ -1,23 +1,15 @@
 import {
-    Metaplex,
-    Nft,
-    NftError,
-    NftWithToken,
-    Sft,
-    SftWithToken,
+    Metaplex
   } from "@metaplex-foundation/js";
   import {
     Connection,
     clusterApiUrl,
-    ParsedAccountData,
-    AccountInfo,
     PublicKey,
   } from "@solana/web3.js";
-  import { AccountType, TOKEN_PROGRAM_ID } from "@solana/spl-token";
+  import { TOKEN_PROGRAM_ID } from "@solana/spl-token";
   import PromisePool from "@supercharge/promise-pool/dist";
   
   import { useState, useEffect } from "react";
-  import { useWallet } from "@solana/wallet-adapter-react";
   import React from "react";
   
   export default function NFTList(props) {

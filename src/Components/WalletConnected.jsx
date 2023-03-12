@@ -1,21 +1,15 @@
-import { useWallet } from "@solana/wallet-adapter-react";
-import { Metaplex } from "@metaplex-foundation/js";
-import { Connection, clusterApiUrl,} from "@solana/web3.js";
-
 import Card from './Card';
 import data from '../data'
 import NFTList from "./GetData";
+import { useWallet } from '@solana/wallet-adapter-react';
 
-
-
-
-export default function WalletConnected(props) {
+export default function WalletConnected({ props }) {
+  const { publicKey } = useWallet();
   const cards = data.map(item =>{
     return (<Card 
       image ={item.img}
       name = {item.name}/>)
   })
-
 
   const MyModal = () =>{
     return(
@@ -32,7 +26,7 @@ export default function WalletConnected(props) {
   return (
     <>
       <MyModal />
-      <NFTList publicKey={props.publicKey} />
+      <NFTList publicKey={publicKey} />
     </>
   )
 }

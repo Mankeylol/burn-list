@@ -1,11 +1,11 @@
+import { useWallet } from "@solana/wallet-adapter-react";
 import React from "react";
 import { Wallet } from "./WalletAdapter";
-import { useWallet } from "@solana/wallet-adapter-react";
 
 export default function Navbar() {
-  const { publicKey, wallet } = useWallet();
+  const { publicKey } = useWallet();
 
-  console.log("wallet", wallet, publicKey);
+  console.log("wallet", publicKey);
   return (
     <nav className='navbar'>
       <h1 className='hero-text'>The Burn List</h1>
