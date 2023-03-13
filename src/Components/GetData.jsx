@@ -111,7 +111,7 @@ import BurnNFTs from "./BurnNFTs";
     return (
       <div className="nft-container">
         {cards}
-        <BurnNFTs data = {nfts} publicKey ={props.publicKey} />
+        <BurnNFTs data = {nfts} mintAddress = {mintAddress}/>
         </div>
     );
   }

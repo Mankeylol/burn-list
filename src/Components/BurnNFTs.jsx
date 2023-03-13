@@ -5,9 +5,20 @@ import { useEffect } from "react";
 
 export default function BurnNFTs(props) {
   
-  const nftsToBurn = props.data
-  console.log(nftsToBurn)
   const publicKey = props.publicKey
+
+  useEffect(()=>{
+    const nftsToBurn = props.data
+  console.log(nftsToBurn)
+  const mintAddresses = []
+
+    for (let i = 0; i < nftsToBurn.length; i++) {
+
+      mintAddresses.push(nftsToBurn[i].mint.address.toBase58())
+    }
+    console.log(mintAddresses)
+  }, [props.data])
+  
 
   useEffect(()=>{
     async function burnTx(){
@@ -18,7 +29,7 @@ export default function BurnNFTs(props) {
 
 
       const parameters = {
-        mintAddress : nftsToBurn
+        mintAddress : "HzAyESmG9WpM1RH8rdX7XCAyQPK19Fh4DndhRN5L4S66"
       }
 
       await metaplex.nfts().delete(parameters)
