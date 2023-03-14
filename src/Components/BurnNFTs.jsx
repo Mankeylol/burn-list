@@ -29,7 +29,7 @@ export default function BurnNFTs(props) {
     async function burnTx(){
       const connection = new Connection(clusterApiUrl("devnet"));
       const metaplex = new Metaplex(connection);
-      const wallet = publicKey.toBase58();
+      const wallet = new PublicKey(publicKey.toBase58());
       metaplex.use(walletAdapterIdentity(wallet));
 
 
@@ -43,7 +43,7 @@ export default function BurnNFTs(props) {
     
   return (
     <>
-    <button className="burn-btn" onClick={burnTx}>Burn and claim rent </button>
+    <button className="burn-btn" onClick={()=>burnTx()}>Burn and claim rent </button>
     </>
   );
 }
