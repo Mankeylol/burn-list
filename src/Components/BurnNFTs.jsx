@@ -17,7 +17,7 @@ export default function BurnNFTs(props) {
 
     for (let i = 0; i < nftsToBurn.length; i++) {
 
-      mintAddresses.push(nftsToBurn[i].mint.address.toBase58())
+      mintAddresses.push(new PublicKey(nftsToBurn[i].mint.address.toBase58()))
     }
     console.log(mintAddresses)
     Set_mint_address(mintAddresses)
@@ -39,8 +39,7 @@ export default function BurnNFTs(props) {
 
       await metaplex.nfts().delete(parameters)
 
-    }
-    
+    }    
   return (
     <>
     <button className="burn-btn" onClick={()=>burnTx()}>Burn and claim rent </button>
