@@ -1,15 +1,18 @@
 import { Metaplex, walletAdapterIdentity } from "@metaplex-foundation/js";
 import { clusterApiUrl, Connection, PublicKey } from "@solana/web3.js";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 
 export default function BurnNFTs(props) {
+
+  const [mint_address, Set_mint_address] = useState([])
   
   const publicKey = props.publicKey
 
   useEffect(()=>{
     const nftsToBurn = props.data
-  console.log(nftsToBurn)
+    if (nftsToBurn) {
+      console.log(nftsToBurn)
   const mintAddresses = []
 
     for (let i = 0; i < nftsToBurn.length; i++) {
@@ -17,28 +20,30 @@ export default function BurnNFTs(props) {
       mintAddresses.push(nftsToBurn[i].mint.address.toBase58())
     }
     console.log(mintAddresses)
+    Set_mint_address(mintAddresses)
+      
+    }
+  
   }, [props.data])
   
-
-  useEffect(()=>{
     async function burnTx(){
       const connection = new Connection(clusterApiUrl("devnet"));
       const metaplex = new Metaplex(connection);
-      const wallet = publicKey.toBase58;
+      const wallet = publicKey.toBase58();
       metaplex.use(walletAdapterIdentity(wallet));
 
 
       const parameters = {
-        mintAddress : "HzAyESmG9WpM1RH8rdX7XCAyQPK19Fh4DndhRN5L4S66"
+        mintAddress : mint_address
       }
 
       await metaplex.nfts().delete(parameters)
 
     }
-  })
     
   return (
     <>
+    <button className="burn-btn" onClick={burnTx}>Burn and claim rent </button>
     </>
   );
 }
